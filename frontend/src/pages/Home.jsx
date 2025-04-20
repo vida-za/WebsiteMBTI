@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import '../style/Tests.css';
+import '../style/Home.css';
 
-export default function Tests() {
+export default function Home() {
     return (
         <div className="tests">
             <h1>Выберите тест</h1>

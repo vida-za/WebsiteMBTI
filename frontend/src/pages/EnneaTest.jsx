@@ -1,5 +1,6 @@
 import { useState } from "react";
 import '../style/Test.css';
+import QuestionBlock from "../components/QuestionBlock";
 
 const questions = [
     { id: 1, text: 'Вы расстраиваетесь, когда ваша забота о других остается недооцененной' },
@@ -29,14 +30,13 @@ export default function EnneaTest() {
         <div className="test-container">
             <h2 className="test-header">Ennea Тест</h2>
             {questions.map(q => (
-                <div key={q.id} className="test-question-block">
-                    <p className="test-question">{q.text}</p>
-                    <div className="test-options">
-                        {answers.map(a => (
-                            <button key={a.id} onClick={() => handleAnswer(q.id, a.id)} className="option-button">{a.text}</button>
-                        ))}
-                    </div>
-                </div>
+                <QuestionBlock 
+                    key={q.id}
+                    qusetion={q}
+                    answers={answers}
+                    selected={mappingAnswers[q.id]}
+                    onAnswer={handleAnswer}
+                />
             ))}
             <button onClick={handleFinish} className="finish-button">Завершить</button>
         </div>
